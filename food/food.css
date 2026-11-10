@@ -101,6 +101,10 @@ body{
     background-color: hsl(0, 0%, 80%);
 }
 
+.toptrend button:active{
+    background-color: hsl(0, 0%, 70%);
+}
+
 
 
 
