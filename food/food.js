@@ -1,5 +1,4 @@
 const addbtn = document.querySelectorAll(".addbtn");
-const para = document.getElementById("para");
 
 addbtn.forEach(btn =>{
     btn.addEventListener("click", event=>{
@@ -8,58 +7,60 @@ addbtn.forEach(btn =>{
         btn.style.backgroundColor = "black";
         btn.style.color = "white";
 
-const addbtn = document.querySelectorAll(".addbtn");
 
-addbtn.forEach(btn => {
 
-    // Check whether this food was previously added
-    const food = btn.dataset.food;
-
-    if (localStorage.getItem(food) === "added") {
-        btn.textContent = "Added";
-        btn.style.backgroundColor = "black";
-        btn.style.color = "white";
     }
-
-    btn.addEventListener("click", event => {
-
-        if (btn.textContent === "Add to Cart") {
-
-            btn.textContent = "Added";
-            btn.style.backgroundColor = "black";
-            btn.style.color = "white";
-
-            localStorage.setItem(food, "added");
-
-        }
-        else {
-
-            btn.textContent = "Add to Cart";
-            btn.style.backgroundColor = "white";
-            btn.style.color = "black";
-
-            localStorage.removeItem(food);
-        }
+    else{
+        btn.textContent = "Add to Cart";
+        btn.style.backgroundColor = "white";
+        btn.style.color = "black";        
+    }
 
     });
 });
 
 
 
+const divv = document.getElementById("divv");
+const total = document.getElementById("total");
+let totalprice = 0;
 
-const divv = document.getElementById("lists");
 
 function addfood(food,price){
-    const newdiv = document.createElement("div");
+    
+    const existingfood = document.getElementById(food);
 
-    const foodname = document.createElement("p");
-    foodname.textcontent = food;
+    if (existingfood) {
+        existingfood.remove();
+        totalprice -= price;
+        total.textContent = `₹${totalprice}`;
 
-    const foodprice = document.createElement("p");
-    foodprice.textcontent = `₹${price}`;
-    newdiv.appendChild(foodname);
-    newdiv.appendChild(foodprice);
+    }
+    else {
+        
+    const newfood = document.createElement("div");
+    newfood.id = food;
+    newfood.classList.add("food-item");
 
-    divv.appendChild(newdiv);
+    const foodname = document.createElement("span");
+    
+    foodname.textContent = food;
 
+    const foodprice = document.createElement("span");
+    foodprice.textContent = `₹${price}`;
+
+    newfood.appendChild(foodname);
+    newfood.appendChild(foodprice);
+
+    divv.appendChild(newfood);
+
+    totalprice += price;
+
+    total.textContent = `₹${totalprice}`;
+    
 }
+}
+
+
+
+

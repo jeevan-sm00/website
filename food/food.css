@@ -105,7 +105,46 @@ body{
     background-color: hsl(0, 0%, 70%);
 }
 
+.food-item {
+    display: flex;
+    justify-content: space-between;
+    width: 300px;
+    padding: 10px;
+}
 
+#bill{
+    border-radius: 10px;
+    width: 330px;
+    margin-left: 465px;
+    color: white;
+    background-color: black;
+}
+
+#cart{
+    padding-top: 20px;
+    margin-left: 90px;
+}
+
+#checkbtn{
+    margin-left: 570px ;
+    padding: 20px;
+    background-color:hsl(0, 0%, 0%);
+    color:white;
+    border:0px;
+    border-radius:10px;
+    font-size: 1.2rem;
+    transition: border-radius 0.3s ease;
+}
+
+
+#checkbtn:hover{
+    border-radius: 20px;
+    background-color: hsl(0, 0%, 20%);
+}
+
+#checkbtn:active{
+    background-color: hsl(0, 0%, 30%);
+}
 
 
 
